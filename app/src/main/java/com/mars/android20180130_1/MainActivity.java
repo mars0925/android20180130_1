@@ -90,6 +90,16 @@ public class MainActivity extends AppCompatActivity {
         public void onLocationChanged(Location location) {
             //得到經緯度的資料location.getLatitude(),location.getLongitude()
             Log.d("LOC", "Change!!" +  + location.getLatitude() + "," + location.getLongitude());
+            //可以利用經緯度來算直線距離
+            //起一個101的位置物件
+            Location loc101 = new Location("LOC");
+            //設定經緯度
+            loc101.setLatitude(25.0336);
+            loc101.setLongitude(121.5646);
+            //使用內建的方法distanceTo 就可以算出距離,單位公尺
+            float dist = location.distanceTo(loc101);
+            Log.d("LOC", "Dist:" + dist);
+
         }
 
         @Override
